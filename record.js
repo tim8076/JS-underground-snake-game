@@ -12,6 +12,9 @@ export function getRecord() {
 }
 
 export function getBestRecord() {
-  let records = getRecord();
-  return Math.max(...records);
+  if (getRecord()) {
+    let records = getRecord()
+    return Math.max(...records);
+  }
+  return 0;
 }
