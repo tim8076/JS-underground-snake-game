@@ -2,6 +2,6 @@
 
 使用技術: Javascript, html, css
 
-[Demo]()
+[Demo](https://tim8076.github.io/JS-underground-snake-game/)
 
-[Blog]()
+[Blog](https://tim8076.github.io/2022/07/05/2022-7-5-3-js-snake/)
