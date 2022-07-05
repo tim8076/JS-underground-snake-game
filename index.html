@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" type="module" defer></script>
+</head>
+<body>
+  <div class="start-page" data-start-page data-page>
+    <h1>SNAAAAAAKE</h1>
+    <p>PRESS [SPACE] TO START</p>
+  </div>
+  <div class="game-page" data-game-page data-page>
+    <div class="container">
+      <div class="game-container">
+        <p>SNAA</p>
+        <p>AAAAKE</p>
+        <p>score<span data-score>20</span></p>
+        <p>SNAA</p>
+        <p>AAAAKE</p>
+        <p>best <span data-best-record>108</span></p>
+        <div class="game-board" data-game-board>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="end-page" data-end-page data-page>
+    <h2>GAME OVER</h2>
+    <div class="score-panel">
+      <div class="score-box">
+        <p class="title">score</p>
+        <p class="score" data-score-final>20</p>
+      </div>
+      <div class="line"> / </div>
+      <div class="score-box">
+        <p class="title">best</p>
+        <p class="best-score" data-best-record-final>102</p>
+      </div>
+    </div>
+    <h3 class="restart-title">restart?</h3>
+    <div class="buttons">
+      <p class="btn" data-restart-button>YES[Y]</p>
+      <p class="btn" data-return-button>NO[N]</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*,*::before,*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-target: #00FFE2;
+  --color-primary: #002A9D;
+  --color-primary-dark: #00035A;
+  --color-primary-light: #4e6bba;
+  --color-dark: #000;
+  --color-light: #fff;
+  --color-gray-100: #F8F8F8;
+  --color-gray-200: #F5F5F5;
+  --color-gray-300: #E8E8E8;
+  --color-gray-400: #D3D3D3;
+  --color-gray-500: #c8c8c8;
+  --font-base: 1rem;
+  --font-md: 1.5rem;
+  --font-lg: 2.25rem;
+}
+
+body {
+  font-size: var(--font-base);
+  color: var(--color-light);
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* 遊戲開始頁面 */
+
+.start-page {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  background-image: url('./imgs/bg-start.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-page.open {
+  display: flex;
+}
+
+.start-page h1 {
+  font-size: var(--font-lg);
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.start-page h1::before,
+.start-page h1::after,
+.end-page h2::before,
+.end-page h2::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-light);
+}
+
+.start-page h1::before,
+.end-page h2::before {
+  left: -60px;
+}
+.start-page h1::after, 
+.end-page h2::after {
+  right: -60px;
+}
+
+.start-page p {
+  font-size: var(--font-md);
+  color: var(--color-target);
+}
+
+/* 遊戲開始頁面 */
+
+/* 遊戲進行頁面 */
+
+.game-page {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  background-color: var(--color-dark);
+}
+
+.game-page.open {
+  display: block;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-container {
+  width: 100%;
+  position: relative;
+}
+
+.game-board {
+  --col-num: 28;
+  --row-num: 16;
+  width: 100%;
+  height: 640px;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(var(--col-num), 1fr);
+  grid-template-rows: repeat(var(--row-num), 1fr);
+}
+
+.game-container > p {
+  position: absolute;
+  font-size: var(--font-lg);
+}
+
+.game-container > p:first-child {
+  top: 0;
+  left: -6.5rem;
+  transform: rotate(-90deg);
+}
+
+.game-container > p:nth-child(2) {
+  top: -3.5rem;
+  left: -0.75rem;
+}
+
+.game-container > p:nth-child(3) {
+  top: -3.5rem;
+  right: 0rem;
+  font-size: var(--font-base);
+  display: flex;
+  align-items: center;
+}
+
+.game-container > p:nth-child(3) span {
+  font-size: var(--font-lg);
+  margin-left: 0.5rem;
+}
+
+.game-container > p:nth-child(4) {
+  bottom: 0;
+  right: -6.5rem;
+  transform: rotate(90deg);
+}
+
+.game-container > p:nth-child(5) {
+  bottom: -3.5rem;
+  right: -0.75rem;
+  transform: rotate(180deg);
+}
+
+.game-container > p:nth-child(6) {
+  bottom: -3.5rem;
+  left: 0;
+  font-size: var(--font-base);
+  display: flex;
+  align-items: center;
+}
+
+.game-container > p:nth-child(6) span {
+  font-size: var(--font-lg);
+  margin-left: 0.5rem;
+}
+
+.grid-item {
+  background-color: var(--color-primary-dark);
+  position: relative;
+}
+
+.grid-item.head {
+  background-color: var(--color-target);
+  box-shadow: 0 0 30px var(--color-light);
+  z-index: 10;
+}
+
+.grid-item.gray-100 {
+  background-color: var(--color-gray-100);
+}
+
+.grid-item.gray-200 {
+  background-color: var(--color-gray-200);
+}
+
+.grid-item.gray-300 {
+  background-color: var(--color-gray-300);
+}
+
+.grid-item.gray-400 {
+  background-color: var(--color-gray-400);
+}
+
+.grid-item.primary-light {
+  background-color: var(--color-primary-light);
+}
+
+.grid-item.body {
+  background-color: var(--color-gray-500);
+}
+
+.grid-item.food {
+  background-image: url('./imgs/ic-point.svg');
+  background-position: center center;
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.grid-item.sibling::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+/* 結束畫面 */
+
+.end-page {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-dark);
+}
+
+.end-page.open {
+  display: flex;
+}
+
+.end-page h2 {
+  font-size: var(--font-lg);
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.end-page .score-panel {
+  font-size: var(--font-lg);
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.75rem;
+}
+
+.end-page .score-panel .line {
+  margin: 0 6rem;
+}
+
+.end-page .score-panel .title {
+  font-size: var(--font-base);
+  margin-bottom: 0.75rem;
+}
+
+.end-page .score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end-page .restart-title {
+  font-size: var(--font-lg);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  padding: 0.5rem;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.end-page .buttons{
+  display: flex;
+}
+
+.end-page .btn {
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--color-target);
+  font-size: var(--font-md);
+  margin: 0 2.5rem;
+  padding: 1rem 0.5rem;
+}
+
+.end-page .btn.selected {
+  background-color: var(--color-light);
+}
+
+
+
+
+
+
+
